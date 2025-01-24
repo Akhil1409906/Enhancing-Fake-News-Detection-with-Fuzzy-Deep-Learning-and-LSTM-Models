@@ -18,7 +18,7 @@ Follow these steps to set up the project:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/fake-news-detection.git
+   git clone https://github.com/Akhil1409906/fake-news-detection.git
    
 2. Navigate to the project directory:
    pip install -r requirements.txt
