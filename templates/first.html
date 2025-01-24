@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="Fake News Detection">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="fake news, detection, machine learning, AI">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Fake News Detection</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:400,500" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+    <link rel="stylesheet" href="../static/css/nice-select.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-brand {
+            display: flex;               /* Use flexbox to align the image and text */
+            align-items: center;         /* Vertically center the items */
+        }
+        
+        .navbar-brand img {
+            width: 180px;                /* Set the width of the logo image */
+            margin-right: 15px;          /* Add some space between the image and text */
+        }
+        
+        .navbar-brand span {
+            font-size: 24px;             /* Set the font size for the text */
+            color: white;                /* Set the text color */
+            font-weight: 600;            /* Set a slightly bolder font weight */
+            text-transform: uppercase;   /* Transform text to uppercase */
+        }
+
+        .navbar-nav a {
+            color: white!important;
+            font-weight: 500;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            margin-left: auto; 
+            padding-right:10px 15px;
+        }
+
+        .navbar-nav a:hover {
+            color: #ffcd32 !important;
+        }
+
+        .home-banner-area {
+            background-image: url('../static/p5.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        .home-banner-area .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .home-banner-area h1 {
+            font-size: 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .banner-content {
+            height: 100vh;  /* Full viewport height */
+            display: flex;
+            justify-content: center;  /* Centers the content vertically */
+            align-items: center;      /* Ensures content stays vertically centered */
+            text-align: right;        /* Aligns text to the right */
+            padding-right: 10px;      /* Right padding for spacing from the edge */
+        }
+        
+        
+        
+        .btn-primary {
+            background-color: #000000;
+            border-color: #000000;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-top: 20px;  /* Adds space above the button */
+        }
+        
+        .btn-primary:hover {
+            background-color: #000000;
+            border-color: #000000;
+        }
+        /* Banner Container - Ensures full height of the page and aligns the content to the right */
+.row.fullscreen {
+    height: 100vh; /* Full height of the viewport */
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center; /* Vertically center the items */
+}
+
+/* Text Container - The container that holds all text content */
+.text-container {
+    padding-right: 30px; /* Spacing from the right edge */
+    text-align: right; /* Align the text to the right */
+}
+
+/* Styling for each text element (Fake, News, Detection) */
+.text-container p,
+.text-container h1 {
+    margin: 10px 0; /* Vertical spacing between text elements */
+    font-weight: 300; /* Default font weight for 'Fake' and 'News' */
+}
+
+/* Specific styling for the text elements */
+.text-container p {
+    font-size: 46px; /* Set font size for 'Fake' and 'News' */
+    margin-bottom: 20px;        /* Add space below 'Detection' */
+}
+
+.text-container h1 {
+    font-size: 48px; /* Larger font size for 'Detection' */
+    font-weight: 500; /* Bold weight for 'Detection' */
+    margin-bottom: 20px;        /* Add space below 'Detection' */
+}
+
+/* Button Styling - For the 'Get Started' button */
+.text-container .btn-primary {
+    background-color: #848484    ; /* Button background color */
+    border-color: #007bff; /* Button border color */
+    padding: 15px 25px; /* Padding inside the button */
+    font-size: 18px; /* Font size for the button text */
+    border-radius: 50px; /* Rounded corners for the button */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    color: white; /* White text on the button */
+    text-decoration: none; /* Remove underline from the link */
+    margin-top: 20px; /* Space between button and text */
+}
+
+/* Button Hover Effect - Change background color when hovered */
+.text-container .btn-primary:hover {
+    background-color: black; /* Darker black background on hover */
+    border-color: #000000; /* Darker border on hover */
+}
+
+        
+        .section-gap {
+            padding: 60px 0;
+        }
+
+        .footer-area {
+            background-color: #343a40;
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        .footer-area a {
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .footer-area a:hover {
+            color: #ffcd32;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0;
+        }
+
+        .footer-bottom .social-icons i {
+            font-size: 24px;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-bottom .social-icons i:hover {
+            color: #ffcd32;
+        }
+
+
+        /* Smooth Scroll for Navbar */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Start Header Area -->
+    <header class="default-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"  style="font-family: 'Arial', sans-serif; font-size: 25px; color: #ffffff; font-weight: 600; text-transform: uppercase; text-align: left; padding-left: 20px; padding-right: 20px; transition: all 0.3s ease;">
+                    
+                    Fake News Detection
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li><a class="active" href="{{url_for('first')}}">Home</a></li>
+                        <li><a href="{{url_for('login')}}">Login</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Banner Area -->
+    <section class="home-banner-area relative" id="home">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row fullscreen">
+                <div class="banner-content col-lg-12 d-flex align-items-center justify-content-end">
+                    <div class="text-container">
+                        <p class="animate__animated animate__fadeIn animate__delay-1s" style="font-size: 46px; font-weight: 300; margin-bottom: 20px;">Fake</p>
+<p class="animate__animated animate__fadeIn animate__delay-2s" style="font-size: 46px; font-weight: 300; margin-bottom: 20px;">News</p>
+<h1 class="animate__animated animate__fadeIn animate__delay-3s" style="font-size: 52px; font-weight: 600; margin-bottom: 20px;">Detection</h1>
+
+                        <a href="{{url_for('login')}}" class="btn btn-primary animate__animated animate__fadeIn animate__delay-4s" style='border:None'>Get Started</a>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- End Banner Area -->
+
+    <!-- Start Features Section -->
+    <section id="features" class="section-gap">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-feature">
+                        <i class="fa fa-bolt"></i>
+                        <h4>Advanced Algorithms</h4>
+                        <p>We employ the latest in deep learning and natural language processing for accurate fake news detection.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-feature">
+                        <i class="fa fa-shield"></i>
+                        <h4>Reliable Data</h4>
+                        <p>Our models are trained on a vast array of trustworthy datasets to ensure consistent accuracy and performance.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-feature">
+                        <i class="fa fa-users"></i>
+                        <h4>User-Friendly Interface</h4>
+                        <p>Our platform is designed to be intuitive and easy to use, with a smooth user experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Section -->
+
+    <!-- Start FAQ Section -->
+    <section id="faq" class="section-gap">
+        <div class="container">
+            <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="faq-item">
+                        <h5>What is Fake News Detection?</h5>
+                        <p>Fake News Detection involves using machine learning techniques to identify and classify false information that spreads through digital platforms.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h5>How accurate is the system?</h5>
+                        <p>Our system uses state-of-the-art algorithms trained on large datasets, ensuring high accuracy in detecting fake news.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="faq-item">
+                        <h5>Is it easy to use?</h5>
+                        <p>Yes, our platform is built with simplicity in mind. Users can easily upload news articles and receive instant feedback on their authenticity.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h5>Can I trust the results?</h5>
+                        <p>Our models are constantly updated and refined to provide the most reliable results, ensuring that
+                            <p>Our models are constantly updated and refined to provide the most reliable results, ensuring that you can trust the accuracy of our detection system.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End FAQ Section -->
+    
+        <!-- Start Footer Area -->
+        <footer class="footer-area section-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 single-footer-widget">
+                        <h4>About Us</h4>
+                        <p>Our mission is to combat the spread of fake news using advanced AI and deep learning technologies. We believe in promoting a more informed society.</p>
+                        <div class="social-icons">
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 single-footer-widget">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="{{url_for('first')}}">Home</a></li>
+                            <li><a href="{{url_for('login')}}">Login</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6 single-footer-widget">
+                        <h4>Contact Us</h4>
+                        <p>If you have any questions or feedback, feel free to get in touch with us.</p>
+                    </div>
+                </div>
+                <div class="row footer-bottom d-flex justify-content-between">
+                    <p class="col-lg-12 col-md-12 footer-text text-center">
+                        &copy; 2024 Fake News Detection. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer Area -->
+    
+        <!-- JS & Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="../static/js/owl.carousel.min.js"></script>
+        <script src="../static/js/jquery.magnific-popup.min.js"></script>
+        <script src="../static/js/jquery.nice-select.min.js"></script>
+        <script src="../static/js/main.js"></script>
+    </body>
+    
+    </html>
+    

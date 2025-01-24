@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News📰 Detection System</title>
+
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        /* Navbar background color */
+        .navbar {
+            background-color: #FFFFFF; /* White background */
+            padding: 10px 0; /* Add some padding for better spacing */
+        }
+        
+        /* Navbar links - text size, color, and padding */
+        .navbar-nav .nav-link {
+            font-size: 16px; /* Adjust the text size */
+            color: #333333; /* Set text color to dark gray */
+            padding: 10px 15px; /* Add some padding for spacing */
+            transition: color 0.3s ease; /* Smooth transition for color change */
+        }
+        
+        /* Navbar links on hover */
+        .navbar-nav .nav-link:hover {
+            color: #1abc9c; /* Change color on hover (e.g., green) */
+            background-color: #f1f1f1; /* Optional: Add a background color on hover */
+            border-radius: 5px; /* Optional: Add rounded corners on hover */
+        }
+        
+        /* Navbar brand - adjust the logo or brand name */
+        .navbar-brand {
+            font-size: 20px; /* Increase the font size of the brand */
+            color: #333333; /* Set the brand text color */
+            font-weight: bold; /* Make the brand name bold */
+            transition: color 0.3s ease; /* Smooth transition for color change */
+        }
+        
+        /* Navbar brand on hover */
+        .navbar-brand:hover {
+            color: #1abc9c; /* Change brand color on hover */
+        }
+
+        /* Full screen video background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Centered login form */
+        .login {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .login h1 {
+            font-family: 'Pacifico', cursive;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login textarea {
+            width: 100%;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 20px;
+            resize: none;
+        }
+
+        .login button {
+            width: 100%;
+            font-size: 18px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .results {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .results h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .results h2.red {
+            color: red;
+        }
+
+        .results h2.green {
+            color: green;
+        }
+
+        /* Footer */
+        .footer-area {
+            background-color: #f1f1f1;
+            padding: 20px 0;
+            color: #333;
+			text-align: center;
+			margin-top: 800px; /* Pushes the footer to the bottom of the page */
+			
+        }
+
+        .footer-area p {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                Fake News Detection
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('first') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('upload') }}">Upload</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ url_for('preview') }}">preview</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ url_for('chart') }}">chart</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Video Background -->
+    <video class="video-background" autoplay muted loop>
+        <source src="static/vid1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Login Form -->
+    <div class="login">
+        <h1>Fake News📰  Detector</h1>
+
+        <form action="{{ url_for('predict') }}" method="POST">
+            <textarea name="message" rows="6" cols="50" required="required" placeholder="Enter news text here..." style="font-size: 18pt;"></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+            <div class="results">
+                {% if prediction == ['FAKE'] %}
+                    <h2 class="red">FAKE⚠️ News📰</h2>
+                {% elif prediction == ['REAL'] %}
+                    <h2 class="green">Real News📰</h2>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer-area">
+        <div class="container text-center">
+            <p>&copy; 2024 Fake News Detection | All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (for better interactions) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0l9p6RrmG8kP9k48WEX3Vt5j03tk6Cm3zO0GxAT0Iu50f71r" crossorigin="anonymous"></script>
+</body>
+
+</html>

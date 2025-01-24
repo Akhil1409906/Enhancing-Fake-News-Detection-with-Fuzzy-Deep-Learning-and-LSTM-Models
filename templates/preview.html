@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+    <!-- Meta Tags and Linking -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="colorlib">
+    <meta name="description" content="Fake News Detection">
+    <meta name="keywords" content="Fake News, Detection">
+    <title>Fake News Detection</title>
+
+    <!-- Google Fonts and CSS Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+	<!-- Favicon -->
+	<link rel="icon" href="img/favicon.png" type="image/png">
+  
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	
+	<!-- FontAwesome for Icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="../static/css/styles.css">
+
+    <!-- Include custom styles -->
+    <style>
+    /* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f4f7fa;
+}
+
+.navbar {
+	background-color: #FFFFFF; /* White background */
+	padding: 10px 0; /* Add some padding for better spacing */
+  }
+  
+  /* Navbar links - text size, color, and padding */
+  .navbar-nav .nav-link {
+	font-size: 16px; /* Adjust the text size */
+	color: #333333; /* Set text color to dark gray */
+	padding: 10px 15px; /* Add some padding for spacing */
+	transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  /* Navbar links on hover */
+  .navbar-nav .nav-link:hover {
+	color: #1abc9c; /* Change color on hover (e.g., green) */
+	background-color: #f1f1f1; /* Optional: Add a background color on hover */
+	border-radius: 5px; /* Optional: Add rounded corners on hover */
+  }
+  
+  /* Navbar brand - adjust the logo or brand name */
+  .navbar-brand {
+	font-size: 20px; /* Increase the font size of the brand */
+	color: #333333; /* Set the brand text color */
+	font-weight: bold; /* Make the brand name bold */
+	transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  /* Navbar brand on hover */
+  .navbar-brand:hover {
+	color: #1abc9c; /* Change brand color on hover */
+  }
+
+/* Banner Area */
+.banner-area {
+    background: url('../static/P6.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 120px 0;
+    color: white;
+    text-align: center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.banner-area h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Project Section */
+.project-area {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+.project-area .section-title h2 {
+    font-size: 36px;
+    color: #1abc9c;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.project-area .section-title h4 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Contact Section */
+.page-section {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+}
+.page-section .divider-custom {
+    border-bottom: 2px solid #1abc9c;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.page-section .divider-custom-icon {
+    font-size: 24px;
+    color: #1abc9c;
+}
+.page-section .form-group {
+    margin-bottom: 15px;
+}
+input[type="button"] {
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+input[type="button"]:hover {
+    background-color: #16a085;
+}
+
+/* Footer */
+.footer-area {
+    background-color: #1abc9c;
+    padding: 40px 0;
+    color: white;
+    text-align: center;
+}
+.footer-area .footer-text {
+    font-size: 16px;
+}
+
+        /* Custom Styles will be inserted here */
+    </style>
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation Bar -->
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        Fake News Detection
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('first') }}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('upload') }}">Upload</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('preview') }}">preview</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+    <!-- Banner Area -->
+    <section class="banner-area">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-12">
+                    <h1 class="text-white">Preview</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Section -->
+    <section class="project-area">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center">
+                        <h4>Fake News Detection</h4>
+                        <h2>Preview</h2>
+                    </div>
+
+                    <!-- Data Table (Dynamically Generated) -->
+                    <div class="table-responsive">
+                        {{ df_view.to_html(classes="table table-striped", na_rep="-") | safe }}
+                    </div>
+
+                    <!-- Train | Test Button -->
+                    <div class="form-group">
+                        <input type="button" onclick="hideLoader()" class="btn btn-primary" value="Click to Train | Test" />
+                        <div id="loading" style="display:none;">
+                            <img src="../static/ajax-loader.gif" alt="Loading...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-area">
+        <p class="footer-text">© 2024 Fake News Detection | All Rights Reserved</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top">
+        <a href="#page-top" class="btn btn-dark rounded">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- Bootstrap & JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+
+    <script>
+        function hideLoader() {
+            $('#loading').show(0).delay(10000).hide(0, function () {
+                alert("Training finished!");
+                window.location = "{{url_for('home')}}";
+            });
+        }
+    </script>
+</body>
+
+</html>

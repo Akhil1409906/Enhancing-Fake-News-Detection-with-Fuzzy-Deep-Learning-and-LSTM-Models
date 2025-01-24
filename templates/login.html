@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Fake News</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:400,500" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/linearicons.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+    <link rel="stylesheet" href="../static/css/nice-select.css">
+    <link rel="stylesheet" href="../static/css/mains.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            padding: 15px;
+            background-color: transparent;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .navbar-nav a {
+            color: #000 !important;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-left: 20px;
+            padding: 10px;
+            transition: all 0.3s;
+        }
+
+        .navbar-nav a:hover {
+            color: #1161ee !important;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .login-wrap {
+			width: 100%;
+			margin: auto;
+			max-width: 525px;
+			min-height: 570px;
+			position: relative;
+			background: rgba(40, 57, 101, 0.9); /* Background color with opacity */
+			box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+			border-radius: 15px;
+			padding: 40px 70px 50px 70px;
+			color: white;
+			background-image: url("../static/p1.jpg"); /* Background image */
+			background-size: cover;
+			background-position: center;
+			overflow: hidden; /* Ensures background and content are contained */
+		}
+		
+		/* Overlay with opacity for the login box */
+		.login-html {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			padding: 90px 70px 50px 70px;
+			background: rgba(0, 0, 0, 0.7); /* Darker overlay with opacity */
+			border-radius: 15px;
+			z-index: 2;
+		}
+		
+
+        .login-html {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 90px 70px 50px 70px;
+        }
+
+        /* Form Styling */
+        .login-form .group {
+            margin-bottom: 15px;
+        }
+
+        .login-form .group .label,
+        .login-form .group .input,
+        .login-form .group .button {
+            width: 100%;
+            display: block;
+        }
+
+        .login-form .group .input,
+        .login-form .group .button {
+            border: none;
+            padding: 15px 20px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, .1);
+            color: #000;
+        }
+
+        .login-form .group .button {
+            background: #1161ee;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-form .group .button:hover {
+            background: #0646a7;
+        }
+
+        .login-form .group .label {
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .login-form .group input[data-type="password"] {
+            text-security: circle;
+            -webkit-text-security: circle;
+        }
+
+        .hr {
+            height: 2px;
+            margin: 60px 0 50px 0;
+            background: rgba(255, 255, 255, .2);
+        }
+
+        .foot-lnk {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #2e3a59;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="default-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="{{url_for('first')}}">Fake News</a>
+                <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li><a href="{{url_for('first')}}">Home</a></li>
+                        <li><a class="active" href="{{url_for('login')}}">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="project-area section-gap-top" id="project">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center">
+                        <h4>Fake News Detection</h4>
+                        <h2>Sign Up</h2>
+                    </div>
+                    <div class="login-wrap">
+                        <div class="login-html">
+                            <input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">Sign Up</label>
+                            <div class="login-form">
+                                <!-- Sign Up Form -->
+                                <div class="sign-up-htm">
+                                    <div class="group">
+                                        <label for="user" class="label">Username</label>
+                                        <input id="user" type="text" class="input">
+                                    </div>
+                                    <div class="group">
+                                        <label for="pass" class="label">Password</label>
+                                        <input id="pass" type="password" class="input" data-type="password">
+                                    </div>
+                                    <div class="group">
+										<input type="submit" class="button" value="Sign Up" 
+											   onclick="window.location='{{url_for('upload')}}'"
+											   style="background-color: #636464; border-radius: 30px; padding: 18px 20px; font-size: 16px; color: white; transition: background-color 0.3s ease;" 
+											   onmouseover="this.style.backgroundColor='#000000'" 
+											   onmouseout="this.style.backgroundColor='#636464'">
+									</div>
+									
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-area section-gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>&copy; 2024 Fake News Detection. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="../static/js/vendor/bootstrap.min.js"></script>
+    <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fake News Detection">
+  <meta name="author" content="Your Company">
+  <title>Fake News Detection - Upload</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../static/css/styles.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+   /* Navbar background color */
+.navbar {
+	background-color: #FFFFFF; /* White background */
+	padding: 10px 0; /* Add some padding for better spacing */
+  }
+  
+  /* Navbar links - text size, color, and padding */
+  .navbar-nav .nav-link {
+	font-size: 16px; /* Adjust the text size */
+	color: #333333; /* Set text color to dark gray */
+	padding: 10px 15px; /* Add some padding for spacing */
+	transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  /* Navbar links on hover */
+  .navbar-nav .nav-link:hover {
+	color: #1abc9c; /* Change color on hover (e.g., green) */
+	background-color: #f1f1f1; /* Optional: Add a background color on hover */
+	border-radius: 5px; /* Optional: Add rounded corners on hover */
+  }
+  
+  /* Navbar brand - adjust the logo or brand name */
+  .navbar-brand {
+	font-size: 20px; /* Increase the font size of the brand */
+	color: #333333; /* Set the brand text color */
+	font-weight: bold; /* Make the brand name bold */
+	transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  /* Navbar brand on hover */
+  .navbar-brand:hover {
+	color: #1abc9c; /* Change brand color on hover */
+  }
+  
+
+    .banner-area {
+		background: #1abc9c;
+		padding: 80px 0;
+		color: Black;
+		background-image: url('../static/p2.jpg'); /* Path to your image */
+		background-size: cover; /* Ensures the image covers the entire banner */
+		background-position: center; /* Centers the image */
+		height: 600px; /* Adjust height as necessary */
+	  }
+	  
+    .banner-area h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .project-area {
+      padding: 60px 0;
+      background-color: #f8f9fa;
+    }
+
+    .section-title h4 {
+      color: #2c3e50;
+      font-size: 1.5rem;
+    }
+
+    .section-title h2 {
+      color: #000000;
+      font-size: 2.5rem;
+    }
+
+    .form-section {
+      background-color: #ffffff;
+      padding: 40px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .btn-custom {
+      background-color: #7C857E;
+      color: white;
+      font-size: 1.1rem;
+      padding: 12px 30px;
+      border-radius: 5px;
+    }
+
+    .btn-custom:hover {
+      background-color: #000000;
+      transition: background-color 0.3s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        Fake News Detection
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('first') }}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+          <li class="nav-item active"><a class="nav-link" href="{{ url_for('upload') }}">Upload</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Section -->
+  <section class="banner-area text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <h1>Upload Your Dataset</h1>
+      <p>Detect Fake News Using Our Advanced Algorithm</p>
+    </div>
+  </section>
+
+  <!-- Upload Section -->
+  <section class="project-area">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="section-title text-center">
+            <h4>Fake News Detection</h4>
+            <h2>Upload Your Dataset</h2>
+          </div>
+          <div class="form-section">
+            <form action="http://localhost:5000/preview" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="file1" class="h5">Choose Your Dataset File</label>
+                <input type="file" name="datasetfile" id="file1" class="form-control" required>
+              </div>
+              <div class="form-group text-center">
+                <input type="submit" value="Upload" class="btn btn-custom">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer-area section-gap">
+    <div class="container text-center">
+      <p>&copy; 2024 Fake News Detection | All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- jQuery and Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Optional JavaScript -->
+  <script>
+    // Optional JavaScript code for validation or features can be added here
+    document.querySelector("form").addEventListener("submit", function(event) {
+      if (!document.getElementById('file1').value) {
+        alert("Please select a file before uploading!");
+        event.preventDefault(); // Prevent form submission
+      }
+    });
+  </script>
+
+</body>
+
+</html>
