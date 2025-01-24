@@ -1,0 +1,20 @@
+pip install pandas
+pip install scikit-learn
+pip install numpy
+pip install Pillow
+pip install Keras
+pip install tensorflow
+pip install Flask
+pip install Werkzeug
+pip install gunicorn
+
+
+python 3.8 (64 bit) version
+
+install Visual C++  
+  
+	Link - https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0
+        dowmload--- x64: vc_redist.x64.exe
+
+
+https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0
